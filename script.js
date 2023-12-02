@@ -1,35 +1,32 @@
+let allLetters = 'Jinxedwzarspluckvyfombgqtñ'
 
-let allLetters = 'Jinxedwzarspluckvyfombgqt'
-console.log(allLetters.length)
-let processInput = () => {
+let randomiseCode = (event) => {
+    event.preventDefault()
     let input = document.getElementById('cipher-input').value;
-    if (input) {
-        return input;
-    } else {
-        document.getElementById('cipher-input').value = 'PLEASE ADD TEXT HERE!';
-    }
-}
-
-let randomiseCode = () => {
-    let input = processInput();
     let encoded = []
     let usedIndexes = []
+    let usedRandomLetters = []
 
     for (let i = 0; i < input.length; i++) {
-        if (input[i] === ' ') {
-            encoded[i] = ' ';
+        if (!allLetters.includes(input[i])) {
+            encoded[i] = input[i];
             continue;
         }
         if (usedIndexes.includes(i)) {
             continue;
         }
+        let randomLetter = getRandomLetter();
+        while (usedRandomLetters.includes(randomLetter)) {
+            randomLetter = getRandomLetter()
+        }
 
-        getRandomLetter()
-        encoded[i] = (allLetters[randomLetter])
+        encoded[i] = randomLetter;
+        usedRandomLetters.push(randomLetter);
+        console.log(usedRandomLetters);
 
         for (let j = input.length; j > i; j--) {
             if (input[i] === input[j]) {
-                encoded[j] = allLetters[randomLetter]
+                encoded[j] = randomLetter;
                 usedIndexes.push(j)
             }
         }
@@ -39,7 +36,6 @@ let randomiseCode = () => {
     return encoded;
 }
 
-let getRandomLetter = () => randomLetter = Math.floor(Math.random() * 24);
-console.log(allLetters)
-let cipherButton = document.getElementById('cipher-btn')
-cipherButton.addEventListener('click', randomiseCode);
+let getRandomLetter = () => randomLetter = allLetters[Math.floor(Math.random() * allLetters.length)];
+let cipherForm = document.getElementById('cipher-form')
+cipherForm.addEventListener('submit', randomiseCode);
