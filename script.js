@@ -1,8 +1,24 @@
-let allLetters = 'Jinxedwzarspluckvyfombgqtñ'
+let allLetters = 'jinxedwzarsphluckvyfombgqtñ'
+let password = ['>', '-', ';', '<', '1', '}', '{', '8', '[', '?', ',', '/', '.', '3', '_', '|', ']', '2'];
 
+function generateRandomString() {
+    let result = '';
+    const characters = '0123456789!@#$%^&*()-_=+[{]}|;:,<.>?/';
+
+    for (let i = 0; i < 27; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
+    }
+
+    return result;
+}
+
+// Generate a random string of 27 characters without letters
+const randomString = generateRandomString();
+console.log(randomString);
 let randomiseCode = (event) => {
     event.preventDefault()
-    let input = document.getElementById('cipher-input').value;
+    let input = document.getElementById('cipher-input').value.toLowerCase();
     let encoded = []
     let usedIndexes = []
     let usedRandomLetters = []
@@ -19,10 +35,10 @@ let randomiseCode = (event) => {
         while (usedRandomLetters.includes(randomLetter)) {
             randomLetter = getRandomLetter()
         }
-
         encoded[i] = randomLetter;
         usedRandomLetters.push(randomLetter);
-        console.log(usedRandomLetters);
+        let allLettersIndex = allLetters.indexOf(input[i]);
+        password[allLettersIndex] = randomLetter;
 
         for (let j = input.length; j > i; j--) {
             if (input[i] === input[j]) {
@@ -31,8 +47,11 @@ let randomiseCode = (event) => {
             }
         }
     }
+    console.log(password)
     let ciperedCode = document.getElementsByClassName('ciphered-code')[0];
     ciperedCode.innerHTML = encoded.join('');
+    let cipheredPassword = document.getElementsByClassName('password')[0];
+    cipheredPassword.innerHTML = password.join('');
     return encoded;
 }
 

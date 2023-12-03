@@ -27,3 +27,9 @@ h1 {
     background-color: hsla(84, 100%, 59%, 1);
     color: red;
 }
+
+@media screen and (max-width: 600px) {
+    .content {
+        width: 90%;
+    }
+}
