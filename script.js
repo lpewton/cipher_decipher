@@ -22,6 +22,7 @@ let randomiseCode = (event) => {
     let usedIndexes = []
     let usedRandomLetters = []
 
+
     for (let i = 0; i < input.length; i++) {
         if (!allLetters.includes(input[i])) {
             encoded[i] = input[i];
@@ -36,6 +37,7 @@ let randomiseCode = (event) => {
         }
         encoded[i] = randomLetter;
         usedRandomLetters.push(randomLetter);
+
         let allLettersIndex = allLetters.indexOf(input[i]);
         password[allLettersIndex] = randomLetter;
 
@@ -45,6 +47,7 @@ let randomiseCode = (event) => {
                 usedIndexes.push(j)
             }
         }
+        console.log(password)
     }
     let ciperedCode = document.getElementsByClassName('ciphered-code')[0];
     ciperedCode.innerHTML = encoded.join('');
