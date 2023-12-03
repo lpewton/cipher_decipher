@@ -28,7 +28,11 @@ h1 {
     color: red;
 }
 
-@media screen and (max-width: 600px) {
+#password-input {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 780px) {
     .content {
         width: 90%;
     }

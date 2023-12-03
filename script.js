@@ -15,7 +15,6 @@ function generateRandomString() {
 
 // Generate a random string of 27 characters without letters
 const randomString = generateRandomString();
-console.log(randomString);
 let randomiseCode = (event) => {
     event.preventDefault()
     let input = document.getElementById('cipher-input').value.toLowerCase();
@@ -47,7 +46,6 @@ let randomiseCode = (event) => {
             }
         }
     }
-    console.log(password)
     let ciperedCode = document.getElementsByClassName('ciphered-code')[0];
     ciperedCode.innerHTML = encoded.join('');
     let cipheredPassword = document.getElementsByClassName('password')[0];
