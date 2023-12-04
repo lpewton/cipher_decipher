@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +11,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <div class="content">
-    <header>
-        <h1>DECIPHEROO</h1>
-        <h2>CODE CIPHER</h2>
-    </header>
-    <main>
-        <h3>Enter code to cipher:</h3>
-        <form action="index.html" id="cipher-form">
-        <input type="text" placeholder="Non-ciphered code" name='encipher-code' id="cipher-input" required>
-        <input id="cipher-btn" type="submit" value="Cipher Text"></input>
-        </form>
-        <h3>Password provided:</h3>
-        <h4 class='password'>Password is: </h4>
-        <h3>Ciphered Code:</h3>
-        <p class="ciphered-code"></p>
-    </main>
-</div>
+        <header>
+            <h1>DECIPHEROO</h1>
+            <h2>CODE CIPHER</h2>
+        </header>
+        <main>
+            <h3>Enter code to cipher:</h3>
+            <form action="index.html" id="cipher-form">
+                <input type="text" placeholder="Non-ciphered code" name='encipher-code' id="cipher-input" required>
+                <input id="cipher-btn" type="submit" value="Cipher Text"></input>
+            </form>
+            <h3>Password provided:</h3>
+            <h4 class='password'>Password is: </h4>
+            <h3>Ciphered Code:</h3>
+            <p class="ciphered-code"></p>
+        </main>
+        <footer>
+            <p>Make sure you copy both password and code, if you ever want to decypher what you wrote...</p>
+            <a href="decipher.html">Decipher Code</a>
+        </footer>
+    </div>
 </body>
+
 </html>
