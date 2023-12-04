@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +11,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <div class="content">
-    <header>
-        <h1>DECIPHEROO</h1>
-        <h2>CODE CIPHER</h2>
-    </header>
-    <main>
-        <h3>Enter code to decipher:</h3>
-        <form action="index.html" id="cipher-form">
-        <input type="text" placeholder="Ciphered code" name='decipher-code' id="ciphered-input" required>
-        <h3>Enter password provided:</h3>
-        <input type="text" placeholder="Password provided" name='password' id="password-input" required>
-        <br>
-        <input id="decipher-btn" type="submit" value="Decipher Text"></input>
-        </form>
-        <h3>Deciphered Code:</h3>
-        <p class="deciphered-code"></p>
-    </main>
-</div>
+        <header>
+            <h1>DECIPHEROO</h1>
+            <h2>CODE CIPHER</h2>
+        </header>
+        <main>
+            <form action="index.html" id="decipher-form">
+                <h3>Enter code to decipher:</h3>
+                <input type="text" placeholder="Ciphered code" name='ciphered-input' id="ciphered-input" required>
+                <h3>Enter password provided:</h3>
+                <input type="text" placeholder="Password provided" name='password' id="password-input" required>
+                <br>
+                <input id="decipher-btn" type="submit" value="Decipher Text"></input>
+            </form>
+            <h3>Deciphered Code:</h3>
+            <p class="deciphered-code"></p>
+        </main>
+    </div>
 </body>
+
 </html>

@@ -1,26 +1,12 @@
 let allLetters = 'jinxedwzarsphluckvyfombgqtñ'
-let password = ['>', '-', ';', '<', '1', '}', '{', '8', '[', '?', ',', '/', '.', '3', '_', '|', ']', '2'];
 
-function generateRandomString() {
-    let result = '';
-    const characters = '0123456789!@#$%^&*()-_=+[{]}|;:,<.>?/';
-
-    for (let i = 0; i < 27; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        result += characters.charAt(randomIndex);
-    }
-
-    return result;
-}
-
-// Generate a random string of 27 characters without letters
-const randomString = generateRandomString();
 let randomiseCode = (event) => {
-    event.preventDefault()
+    let password = ['0', '6', '3', '8', '1', '7', '9', '6', '4', '7', '0', '3', '1', '5', '3', '7', '8', '2', '8', '2'];
+    event.preventDefault();
     let input = document.getElementById('cipher-input').value.toLowerCase();
-    let encoded = []
-    let usedIndexes = []
-    let usedRandomLetters = []
+    let encoded = [];
+    let usedIndexes = [];
+    let usedRandomLetters = [];
 
 
     for (let i = 0; i < input.length; i++) {
@@ -47,15 +33,37 @@ let randomiseCode = (event) => {
                 usedIndexes.push(j)
             }
         }
-        console.log(password)
     }
-    let ciperedCode = document.getElementsByClassName('ciphered-code')[0];
-    ciperedCode.innerHTML = encoded.join('');
+    let cipheredCode = document.getElementsByClassName('ciphered-code')[0];
+    cipheredCode.innerHTML = encoded.join('');
     let cipheredPassword = document.getElementsByClassName('password')[0];
     cipheredPassword.innerHTML = password.join('');
     return encoded;
 }
 
+let decipherCode = (event) => {
+    event.preventDefault();
+    let cipheredCode = document.getElementById('ciphered-input').value.toLowerCase();
+    let password = document.getElementById('password-input').value.toLowerCase();
+    let resultCode = [];
+
+    for (let i = 0; i < cipheredCode.length; i++) {
+        let cipheredLetter = cipheredCode[i];
+        let originalLetter = allLetters[password.indexOf(cipheredLetter)];
+        resultCode.push(originalLetter !== undefined ? originalLetter : cipheredLetter);
+    }
+
+    let decipheredCode = document.getElementsByClassName('deciphered-code')[0];
+    decipheredCode.innerHTML = resultCode.join('');
+}
+
 let getRandomLetter = () => randomLetter = allLetters[Math.floor(Math.random() * allLetters.length)];
 let cipherForm = document.getElementById('cipher-form')
-cipherForm.addEventListener('submit', randomiseCode);
+if (cipherForm) { 
+    cipherForm.addEventListener('submit', randomiseCode);
+}
+
+let decipherForm = document.getElementById('decipher-form')
+if (decipherForm) {
+    decipherForm.addEventListener('submit', decipherCode);
+}
