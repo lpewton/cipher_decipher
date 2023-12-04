@@ -1,4 +1,4 @@
-let allLetters = 'jinxedwzarsphluckvyfombgqtñ'
+let allLetters = 'jinxedwzarsphluckvyfombgqtñ';
 
 
 let randomiseCode = (event) => {
@@ -19,7 +19,7 @@ let randomiseCode = (event) => {
         }
         let randomLetter = getRandomLetter();
         while (usedRandomLetters.includes(randomLetter)) {
-            randomLetter = getRandomLetter() // Stop from assigning same values to different letters
+            randomLetter = getRandomLetter(); // Stop from assigning same values to different letters
         }
         encoded[i] = randomLetter;
         usedRandomLetters.push(randomLetter);
@@ -30,12 +30,12 @@ let randomiseCode = (event) => {
         for (let j = input.length; j > i; j--) {
             if (input[i] === input[j]) {
                 encoded[j] = randomLetter;
-                usedIndexes.push(j)
+                usedIndexes.push(j);
             }
         }
     }
-    showCipherResults(encoded, password)
-}
+    showCipherResults(encoded, password);
+};
 
 
 let showCipherResults = (encoded, password) => {
@@ -51,7 +51,7 @@ let showCipherResults = (encoded, password) => {
     cipheredPassword.innerHTML = password.join('');
     cipheredPassword.style.display = 'block';
     return encoded;
-}
+};
 
 
 let decipherCode = (event) => {
@@ -65,8 +65,8 @@ let decipherCode = (event) => {
         let originalLetter = allLetters[password.indexOf(cipheredLetter)];
         resultCode.push(originalLetter !== undefined ? originalLetter : cipheredLetter); // Translate new letter or push it as it is
     }
-    showDecipherResults(resultCode)
-}
+    showDecipherResults(resultCode);
+};
 
 
 let showDecipherResults = (resultCode) => {
@@ -75,19 +75,19 @@ let showDecipherResults = (resultCode) => {
     decipheredCode.style.display = 'block';
     let decipheredCodeHeading = document.getElementsByClassName('hide')[0];
     decipheredCodeHeading.style.display = 'block';
-}
+};
 
 
 let getRandomLetter = () => randomLetter = allLetters[Math.floor(Math.random() * allLetters.length)];
 
 
-let cipherForm = document.getElementById('cipher-form')
+let cipherForm = document.getElementById('cipher-form');
 if (cipherForm) {
     cipherForm.addEventListener('submit', randomiseCode);
 }
 
 
-let decipherForm = document.getElementById('decipher-form')
+let decipherForm = document.getElementById('decipher-form');
 if (decipherForm) {
     decipherForm.addEventListener('submit', decipherCode);
 }
