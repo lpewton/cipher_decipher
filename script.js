@@ -34,10 +34,18 @@ let randomiseCode = (event) => {
             }
         }
     }
+    
+    let hide1 = document.getElementsByClassName('hide')[0];
+    hide1.style.display = 'block';
     let cipheredCode = document.getElementsByClassName('ciphered-code')[0];
     cipheredCode.innerHTML = encoded.join('');
+    cipheredCode.style.display = 'block';
+
+    let hide2 = document.getElementsByClassName('hide')[2];
+    hide2.style.display = 'block';
     let cipheredPassword = document.getElementsByClassName('password')[0];
     cipheredPassword.innerHTML = password.join('');
+    cipheredPassword.style.display = 'block';
     return encoded;
 }
 
@@ -55,6 +63,9 @@ let decipherCode = (event) => {
 
     let decipheredCode = document.getElementsByClassName('deciphered-code')[0];
     decipheredCode.innerHTML = resultCode.join('');
+    decipheredCode.style.display = 'block';
+    let decipheredCodeHeading = document.getElementsByClassName('hide')[0];
+    decipheredCodeHeading.style.display = 'block';
 }
 
 let getRandomLetter = () => randomLetter = allLetters[Math.floor(Math.random() * allLetters.length)];

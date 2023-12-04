@@ -10,17 +10,24 @@ body {
     margin: auto;
     padding-bottom: 30px;
 }
-
 h1 {
+    padding-top: 20px;
+}
+
+h2 {
     border-bottom: solid 2px black;
-    padding: 30px;
+    padding-bottom: 20px;
+}
+
+.hide {
+    display: none;
 }
 
 #cipher-btn {
     font-family: 'Metal Mania';
 }
 
-.ciphered-code, .password {
+.results {
     margin: auto;
     padding: 5px;
     width: fit-content;
@@ -28,8 +35,14 @@ h1 {
     color: red;
 }
 
-#password-input {
+#ciphered-input {
     margin-bottom: 10px;
+}
+
+footer {
+    border-top: solid 2px black;
+    margin-top: 20px;
+    padding-top: 15px;
 }
 
 @media screen and (max-width: 780px) {
